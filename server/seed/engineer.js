@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import bcrypt from "bcrypt";
 import envConfig from "../config/envConfig.js";
-import User from "../models/user.js";
+import User from "../models/User.js";
 import Project from "../models/Project.js";
 import Assignment from "../models/Assignment.js";
 

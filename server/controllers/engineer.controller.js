@@ -1,5 +1,5 @@
 import Assignment from "../models/Assignment.js";
-import User from "../models/user.js";
+import User from "../models/User.js";
 
 const getAllEngineers = async (req, res) => {
   try {

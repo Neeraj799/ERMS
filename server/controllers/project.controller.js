@@ -1,5 +1,5 @@
 import Project from "../models/Project.js";
-import User from "../models/user.js";
+import User from "../models/User.js";
 
 const createProject = async (req, res) => {
   try {
@@ -36,13 +36,11 @@ const createProject = async (req, res) => {
 
     await newProject.save();
 
-    return res
-      .status(201)
-      .json({
-        success: true,
-        data: newProject,
-        message: "Project added successfully",
-      });
+    return res.status(201).json({
+      success: true,
+      data: newProject,
+      message: "Project added successfully",
+    });
   } catch (error) {
     console.log(error);
     return res.status(500).json({ error: "Internal Server Error" });

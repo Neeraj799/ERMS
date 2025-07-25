@@ -1,6 +1,6 @@
 import Assignment from "../models/Assignment.js";
 import Project from "../models/Project.js";
-import User from "../models/user.js";
+import User from "../models/User.js";
 
 const createAssignment = async (req, res) => {
   try {
