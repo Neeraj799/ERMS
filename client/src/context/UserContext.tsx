@@ -1,4 +1,4 @@
-import React, {
+import {
   createContext,
   useContext,
   useEffect,
@@ -8,12 +8,13 @@ import React, {
 import api from "../services/api";
 import { toast } from "sonner";
 
-interface User {
+export interface User {
   _id: string;
   name: string;
   email: string;
-  role: "engineer" | "manager";
+  role: "manager" | "engineer";
   skills?: string[];
+  seniority?: "junior" | "mid" | "senior"; // ✅ Add this line
   department?: string;
   maxCapacity?: number;
 }

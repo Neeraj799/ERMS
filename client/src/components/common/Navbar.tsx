@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
-import { useUserContext } from "../../context/UserContext";
 import { Button } from "../ui/button";
 
 const Navbar = () => {
-  const { currentUser } = useUserContext();
   const navigate = useNavigate();
   const [role, setRole] = useState<string | null>(null);
 

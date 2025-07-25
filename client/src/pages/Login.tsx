@@ -12,7 +12,7 @@ const Login = () => {
   };
 
   const [formData, setFormData] = useState(initialState);
-  const [error, setError] = useState("");
+  const [error, setError] = useState<string>("");
   const navigate = useNavigate();
 
   const handleLogin = async (e: React.FormEvent) => {
@@ -39,7 +39,8 @@ const Login = () => {
       }
     } catch (err: any) {
       console.log(err);
-
+      const errorMessage = err.response?.data?.message;
+      setError(errorMessage);
       toast.error(
         err.response?.data?.message || "Something went wrong. Please try again."
       );

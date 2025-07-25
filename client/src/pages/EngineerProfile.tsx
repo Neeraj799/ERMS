@@ -8,7 +8,13 @@ import { useEngineerContext } from "../context/EngineerContext";
 const EngineerProfile = () => {
   const { currentUser, fetchUser } = useUserContext();
   const { updateEngineerProfile } = useEngineerContext();
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<{
+    name: string;
+    skills: string;
+    seniority: "junior" | "mid" | "senior" | "";
+    department: string;
+    maxCapacity: number;
+  }>({
     name: "",
     skills: "",
     seniority: "",
