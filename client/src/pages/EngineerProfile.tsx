@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useUserContext } from "../context/UserContext";
-import api from "../services/api";
 import { toast } from "sonner";
 import { Input } from "../components/ui/input";
 import { Button } from "../components/ui/button";
