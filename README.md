@@ -114,13 +114,3 @@ Neeraj P C – Full Stack Developer
 This project is licensed under the MIT License.
 
 
----
-
-Let me know if you'd like to include:
-- Screenshots
-- API documentation
-- Deployment steps (Vercel/Render)
-
-Or if you're using GitHub, I can add badges and formatting for that too.
-
-
