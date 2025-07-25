@@ -8,6 +8,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import ManagerTeam from "./pages/ManagerTeam";
 import Assignment from "./pages/Assignment";
 import EngineerProfile from "./pages/EngineerProfile";
+import Navbar from "./components/common/Navbar";
 
 function App() {
   return (
@@ -18,15 +19,19 @@ function App() {
 
         {/* Protected Route for Manager */}
         <Route element={<ProtectedRoute allowedRoles={["manager"]} />}>
-          <Route path="/manager" element={<Manager />} />
-          <Route path="/manager/team" element={<ManagerTeam />} />
-          <Route path="/manager/assignment" element={<Assignment />} />
+          <Route element={<Navbar />}>
+            <Route path="/manager" element={<Manager />} />
+            <Route path="/manager/team" element={<ManagerTeam />} />
+            <Route path="/manager/assignment" element={<Assignment />} />
+          </Route>
         </Route>
 
         {/* Protected Route for Engineer */}
         <Route element={<ProtectedRoute allowedRoles={["engineer"]} />}>
-          <Route path="/engineer" element={<Engineer />} />
-          <Route path="/updateEngineer" element={<EngineerProfile />} />
+          <Route element={<Navbar />}>
+            <Route path="/engineer" element={<Engineer />} />
+            <Route path="/updateEngineer" element={<EngineerProfile />} />
+          </Route>
         </Route>
       </Routes>
     </>

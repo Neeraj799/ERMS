@@ -7,6 +7,7 @@ import React, {
 } from "react";
 import api from "../services/api";
 import { toast } from "sonner";
+import { useUserContext } from "./UserContext";
 
 export interface Project {
   _id: string;
@@ -36,14 +37,16 @@ export const useProjectContext = () => {
 };
 
 export const ProjectProvider = ({ children }: { children: ReactNode }) => {
+  const { currentUser } = useUserContext();
   const [projects, setProjects] = useState<Project[]>([]);
 
   const fetchProjects = async () => {
     try {
       const res = await api.get("/project");
       setProjects(res.data.data || []);
-    } catch (err) {
-      toast.error("");
+    } catch (err: any) {
+      console.error("fetchProjects error:", err);
+      toast.error(err.response?.data?.message || "Failed to fetch projects");
     }
   };
 
@@ -64,8 +67,10 @@ export const ProjectProvider = ({ children }: { children: ReactNode }) => {
   };
 
   useEffect(() => {
-    fetchProjects();
-  }, []);
+    if (currentUser) {
+      fetchProjects();
+    }
+  }, [currentUser]);
   return (
     <ProjectContext.Provider value={{ projects, fetchProjects, addProject }}>
       {children}

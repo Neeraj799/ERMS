@@ -36,7 +36,13 @@ const createProject = async (req, res) => {
 
     await newProject.save();
 
-    return res.status(201).json({ success: true, data: newProject });
+    return res
+      .status(201)
+      .json({
+        success: true,
+        data: newProject,
+        message: "Project added successfully",
+      });
   } catch (error) {
     console.log(error);
     return res.status(500).json({ error: "Internal Server Error" });
