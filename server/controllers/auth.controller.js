@@ -1,7 +1,7 @@
-import User from "../models/user.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import envConfig from "../config/envConfig.js";
+import User from "../models/user.js";
 
 const signup = async (req, res) => {
   try {
