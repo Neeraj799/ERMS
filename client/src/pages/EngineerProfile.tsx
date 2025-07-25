@@ -47,6 +47,11 @@ const EngineerProfile = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    if (!currentUser || !currentUser._id) {
+      toast.error("User ID is missing");
+      return;
+    }
+
     try {
       await updateEngineerProfile(currentUser?._id, {
         ...formData,
